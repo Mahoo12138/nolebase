@@ -1,0 +1,129 @@
+{
+  "main": {
+    "id": "4c558b834d1cdc6d",
+    "type": "split",
+    "children": [
+      {
+        "id": "17c56f085c8f5404",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "短语/惯用语.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1416c25c98108ca5",
+    "type": "split",
+    "children": [
+      {
+        "id": "c3da07c7ac0d07d3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "60fa38e2985d0ec4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "70219ff76468b17f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "df95420b1ae4b6c5",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 154.50000190734863
+  },
+  "right": {
+    "id": "41dd4c070f1ab1d0",
+    "type": "split",
+    "children": [
+      {
+        "id": "26f230c30b1b11df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cb3dbaf021bdaf5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "短语/惯用语.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "be05c097294a497f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "19ee5d411868a3bf",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 232.5714569091797
+  },
+  "active": "17c56f085c8f5404",
+  "lastOpenFiles": [
+    "短语/地道用法.md",
+    "短语/固定搭配.md",
+    "短语/词组短语.md",
+    "测试看板.md",
+    "其他/地道发音.md",
+    "句子/好句好段.md",
+    "其他/英语简写.md",
+    "单词/非正式词.md",
+    "其他/英语百科.md",
+    "单词/其他词汇.md"
+  ]
+}
