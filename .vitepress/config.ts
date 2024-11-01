@@ -1,4 +1,5 @@
 import process from 'node:process'
+import path from 'node:path'
 import { BiDirectionalLinks } from '@nolebase/markdown-it-bi-directional-links'
 import { UnlazyImages } from '@nolebase/markdown-it-unlazy-img'
 import { InlineLinkPreviewElementTransform } from '@nolebase/vitepress-plugin-inline-link-preview/markdown-it'
@@ -12,17 +13,19 @@ import Components from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
 import Inspect from 'vite-plugin-inspect'
 
+import { generateSidebar } from 'vitepress-sidebar';
+
 import { GitChangelog, GitChangelogMarkdownSection } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import { PageProperties, PagePropertiesMarkdownSection } from '@nolebase/vitepress-plugin-page-properties/vite'
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite'
 
-import { creators, creatorNames, creatorUsernames, discordLink, githubRepoLink, siteDescription, siteName, targetDomain, srcDir } from './metadata'
+import { creators, creatorNames, creatorUsernames, discordLink, githubRepoLink, siteDescription, siteName, targetDomain, srcDir, include } from './metadata'
 import { sidebar } from './docsMetadata.json'
 
 
 import { defineConfig as defineUnocssConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
 
-const unocssConfig =  defineUnocssConfig({
+const unocssConfig = defineUnocssConfig({
   shortcuts: [
     ['btn', 'px-4 py-1 rounded inline-flex justify-center gap-2 text-white leading-30px children:mya !no-underline cursor-pointer disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50'],
   ],
@@ -230,10 +233,17 @@ export default defineConfig({
     },
     nav: [
       { text: '主页', link: '/' },
-      { text: '笔记', link: '/笔记/' },
+      ...include.map(text => ({ text, link: `/${text}/` })),
       { text: '最近更新', link: '/toc' },
     ],
-    sidebar,
+    sidebar: generateSidebar(include.map(dir => ({
+      documentRootPath: srcDir,
+      scanStartPath: dir,
+      basePath: `/${dir}/`,
+      resolvePath: `/${dir}/`,
+      collapsed: true,
+      useTitleFromFileHeading: true,
+    }))),
   },
   markdown: {
     theme: {
@@ -269,7 +279,7 @@ export default defineConfig({
         byLevel: 2,
       },
     })(siteConfig)
-  },  
+  },
   vue: {
     template: {
       transformAssetUrls: {
@@ -283,6 +293,11 @@ export default defineConfig({
     },
   },
   vite: {
+    resolve: {
+      alias: {
+        "~": path.resolve(__dirname)
+      }
+    },
     assetsInclude: ['**/*.mov'],
     optimizeDeps: {
       // vitepress is aliased with replacement `join(DIST_CLIENT_PATH, '/index')`

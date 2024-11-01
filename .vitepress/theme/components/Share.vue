@@ -2,7 +2,7 @@
 import { useClipboard } from '@vueuse/core'
 import { ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
-import { plainTargetDomain } from '../../../metadata'
+import { plainTargetDomain } from '~/metadata'
 
 interface HyphenResp<T> {
   data: T

@@ -8,7 +8,7 @@ export const siteDescription = '记录回忆，知识和畅想的地方'
 
 /** 文档所在目录 */
 export const srcDir = "content"
-export const include = ['笔记', '生活']
+export const include = ['每日学习', '语言学习']
 
 /** Repo */
 export const githubRepoLink = 'https://github.com/nolebase/nolebase'
