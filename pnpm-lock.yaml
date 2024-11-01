@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      glob:
+        specifier: ^11.0.0
+        version: 11.0.0
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.7.3

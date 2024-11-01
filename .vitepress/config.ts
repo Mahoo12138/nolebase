@@ -13,14 +13,13 @@ import Components from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
 import Inspect from 'vite-plugin-inspect'
 
-import { generateSidebar } from 'vitepress-sidebar';
+import { generateSidebar } from '../plugins/sidebar';
 
 import { GitChangelog, GitChangelogMarkdownSection } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import { PageProperties, PagePropertiesMarkdownSection } from '@nolebase/vitepress-plugin-page-properties/vite'
 import { ThumbnailHashImages } from '@nolebase/vitepress-plugin-thumbnail-hash/vite'
 
 import { creators, creatorNames, creatorUsernames, discordLink, githubRepoLink, siteDescription, siteName, targetDomain, srcDir, include } from './metadata'
-import { sidebar } from './docsMetadata.json'
 
 
 import { defineConfig as defineUnocssConfig, presetAttributify, presetIcons, presetUno } from 'unocss'
@@ -163,7 +162,7 @@ export default defineConfig({
     footer: {
       message: '用 <span style="color: #e25555;">&#9829;</span> 撰写',
       copyright:
-        '<a class="footer-cc-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> © 2022-PRESENT Nólëbase 的创作者们',
+        '<a class="footer-cc-link" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> © 2022-PRESENT MahooNote 的创作者们',
     },
     search: {
       provider: 'local',
@@ -243,6 +242,8 @@ export default defineConfig({
       resolvePath: `/${dir}/`,
       collapsed: true,
       useTitleFromFileHeading: true,
+      excludePattern: ['README.md', 'daily-notes'],
+      excludeFilesByFrontmatterFieldNames: ['excalidraw-plugin', 'kanban-plugin']
     }))),
   },
   markdown: {
@@ -257,9 +258,9 @@ export default defineConfig({
       md.use(BiDirectionalLinks({
         dir: process.cwd(),
       }) as any)
-      md.use(UnlazyImages() as any, {
-        imgElementTag: 'NolebaseUnlazyImg',
-      })
+      // md.use(UnlazyImages() as any, {
+      //   imgElementTag: 'NolebaseUnlazyImg',
+      // })
       md.use(InlineLinkPreviewElementTransform as any)
     },
   },
