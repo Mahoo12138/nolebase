@@ -6,14 +6,14 @@ export const siteName = 'MahooNote'
 export const siteShortName = 'MahooNote'
 export const siteDescription = '记录终生学习的地方'
 
-/** 文档所在目录 */
-export const srcDir = "content"
+/** 文档所在目录: 相对于项目根目录的 markdown 文件所在的文件夹 */
+export const srcDir = "./content"
 export const include = ['每日学习', '语言学习']
 
 /** Repo */
 export const githubRepoLink = 'https://github.com/mahoo12138'
 /** Discord */
-export const discordLink = 'https://discord.gg/XuNFDcDZGj'
+export const discordLink = 'https://blog.mahoo12138.cn'
 
 /** 无协议前缀域名 */
 export const plainTargetDomain = 'note.mahoo12138.cn'

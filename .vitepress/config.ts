@@ -13,7 +13,7 @@ import Components from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
 import Inspect from 'vite-plugin-inspect'
 
-import { generateSidebar } from '../plugins/sidebar';
+import { generateSidebar } from '@mahoo-note/vp-sidebar';
 
 import { GitChangelog, GitChangelogMarkdownSection } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import { PageProperties, PagePropertiesMarkdownSection } from '@nolebase/vitepress-plugin-page-properties/vite'
@@ -242,7 +242,7 @@ export default defineConfig({
       resolvePath: `/${dir}/`,
       collapsed: true,
       useTitleFromFileHeading: true,
-      excludePattern: ['README.md', 'daily-notes'],
+      excludePattern: ['README.md'],
       excludeFilesByFrontmatterFieldNames: ['excalidraw-plugin', 'kanban-plugin']
     }))),
   },
@@ -253,15 +253,15 @@ export default defineConfig({
     },
     math: true,
     config: (md) => {
-      md.use(MarkdownItFootnote as any)
-      md.use(MarkdownItMathjax3 as any)
-      md.use(BiDirectionalLinks({
-        dir: process.cwd(),
-      }) as any)
-      // md.use(UnlazyImages() as any, {
-      //   imgElementTag: 'NolebaseUnlazyImg',
-      // })
-      md.use(InlineLinkPreviewElementTransform as any)
+      // md.use(MarkdownItFootnote)
+      // md.use(MarkdownItMathjax3)
+      // md.use(BiDirectionalLinks({
+      //   dir: process.cwd(),
+      // }))
+      // // md.use(UnlazyImages() as any, {
+      // //   imgElementTag: 'NolebaseUnlazyImg',
+      // // })
+      // md.use(InlineLinkPreviewElementTransform as any)
     },
   },
   async transformHead(context) {
@@ -296,8 +296,11 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "~": path.resolve(__dirname)
-      }
+        "~": path.resolve(__dirname),
+        // '@mahoo-note/vp-sidebar': import.meta.env.MODE === 'development'
+        //   ? path.resolve(__dirname, 'packages/@mahoo-note/vp-sidebar/src')
+        //   : path.resolve(__dirname, 'packages/@mahoo-note/vp-sidebar/dist'),
+      },
     },
     assetsInclude: ['**/*.mov'],
     optimizeDeps: {
@@ -308,30 +311,30 @@ export default defineConfig({
       ],
     },
     plugins: [
-      Inspect(),
-      GitChangelog({
-        repoURL: () => githubRepoLink,
-        mapAuthors: creators,
-      }),
-      GitChangelogMarkdownSection({
-        excludes: [
-          'toc.md',
-          'index.md',
-        ],
-      }),
-      PageProperties(),
-      PagePropertiesMarkdownSection({
-        excludes: [
-          'toc.md',
-          'index.md',
-        ],
-      }),
-      // ThumbnailHashImages(),
-      Components({
-        include: [/\.vue$/, /\.md$/],
-        dirs: '.vitepress/theme/components',
-        dts: '.vitepress/components.d.ts',
-      }),
+      // Inspect(),
+      // GitChangelog({
+      //   repoURL: () => githubRepoLink,
+      //   // mapAuthors: creators,
+      // }),
+      // GitChangelogMarkdownSection({
+      //   excludes: [
+      //     'toc.md',
+      //     'index.md',
+      //   ],
+      // }),
+      // PageProperties(),
+      // PagePropertiesMarkdownSection({
+      //   excludes: [
+      //     'toc.md',
+      //     'index.md',
+      //   ],
+      // }),
+      // // ThumbnailHashImages(),
+      // Components({
+      //   include: [/\.vue$/, /\.md$/],
+      //   dirs: '.vitepress/theme/components',
+      //   dts: '.vitepress/components.d.ts',
+      // }),
       UnoCSS(unocssConfig),
     ],
     ssr: {

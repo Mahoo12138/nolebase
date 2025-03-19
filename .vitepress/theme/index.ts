@@ -2,6 +2,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 
+
 import {
   InjectionKey as NolebaseEnhancedReadabilitiesInjectionKey,
   LayoutMode as NolebaseEnhancedReadabilitiesLayoutMode,
@@ -71,68 +72,61 @@ const ExtendedTheme: Theme = {
     })
   },
   enhanceApp({ app }) {
-    /**
-     * Have to manually import and register the essential components that needed during build globally.
-     *
-     * Learn more at: Warn `Hydration completed but contains mismatches.` and Custom components are not rendered · Issue #1918 · vuejs/vitepress
-     * https://github.com/vuejs/vitepress/issues/1918
-     */
+    // app.component('HomePage', HomePage)
+    // app.component('DocFooter', DocFooter)
+    // app.component('Share', Share)
+    // app.component('TocList', TocList)
+    // app.component('AppContainer', AppContainer)
+    // app.component('NolebaseUnlazyImg', NolebaseUnlazyImg)
 
-    app.component('HomePage', HomePage)
-    app.component('DocFooter', DocFooter)
-    app.component('Share', Share)
-    app.component('TocList', TocList)
-    app.component('AppContainer', AppContainer)
-    app.component('NolebaseUnlazyImg', NolebaseUnlazyImg)
+    // app.provide(NolebaseEnhancedReadabilitiesInjectionKey, {
+    //   layoutSwitch: {
+    //     defaultMode: NolebaseEnhancedReadabilitiesLayoutMode.SidebarWidthAdjustableOnly,
+    //   },
+    //   spotlight: {
+    //     defaultToggle: true,
+    //     hoverBlockColor: 'rgb(240 197 52 / 7%)',
+    //   },
+    // })
 
-    app.provide(NolebaseEnhancedReadabilitiesInjectionKey, {
-      layoutSwitch: {
-        defaultMode: NolebaseEnhancedReadabilitiesLayoutMode.SidebarWidthAdjustableOnly,
-      },
-      spotlight: {
-        defaultToggle: true,
-        hoverBlockColor: 'rgb(240 197 52 / 7%)',
-      },
-    })
-
-    app.use(NolebaseInlineLinkPreviewPlugin)
-    app.use(NolebaseGitChangelogPlugin)
-    app.use(NolebasePagePropertiesPlugin<{
-      tags: string[]
-      progress: number
-    }>(), {
-      properties: {
-        'zh-CN': [
-          {
-            key: 'tags',
-            type: 'tags',
-            title: '标签',
-          },
-          {
-            key: 'progress',
-            type: 'progress',
-            title: '完成进度',
-          },
-          {
-            key: 'wordCount',
-            type: 'dynamic',
-            title: '字数',
-            options: {
-              type: 'wordsCount',
-            },
-          },
-          {
-            key: 'readingTime',
-            type: 'dynamic',
-            title: '阅读时间',
-            options: {
-              type: 'readingTime',
-              dateFnsLocaleName: 'zhCN',
-            },
-          },
-        ],
-      },
-    })
+    // app.use(NolebaseInlineLinkPreviewPlugin)
+    // // app.use(NolebaseGitChangelogPlugin)
+    // app.use(NolebasePagePropertiesPlugin<{
+    //   tags: string[]
+    //   progress: number
+    // }>(), {
+    //   properties: {
+    //     'zh-CN': [
+    //       {
+    //         key: 'tags',
+    //         type: 'tags',
+    //         title: '标签',
+    //       },
+    //       {
+    //         key: 'progress',
+    //         type: 'progress',
+    //         title: '完成进度',
+    //       },
+    //       {
+    //         key: 'wordCount',
+    //         type: 'dynamic',
+    //         title: '字数',
+    //         options: {
+    //           type: 'wordsCount',
+    //         },
+    //       },
+    //       {
+    //         key: 'readingTime',
+    //         type: 'dynamic',
+    //         title: '阅读时间',
+    //         options: {
+    //           type: 'readingTime',
+    //           dateFnsLocaleName: 'zhCN',
+    //         },
+    //       },
+    //     ],
+    //   },
+    // })
   },
 }
 
