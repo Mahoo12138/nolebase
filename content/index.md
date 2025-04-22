@@ -3,11 +3,11 @@ layout: home
 sidebar: false
 
 title: MahooNote
-titleTemplate: 记录终生学习的点滴
+titleTemplate: 记录终生学习点滴
 
 hero:
   name: MahooNote
-  text: 记录终生学习的点滴
+  text: 记录终生学习点滴
   tagline: 身不饥寒，天未尝负我；学无长进，我何以对天
   image:
     src: /logo.svg
@@ -15,7 +15,7 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /每日学习/index
+      link: /today-I-learned/index
     - theme: alt
       text: 打开我的主页
       link: https://mahoo12138.cn
