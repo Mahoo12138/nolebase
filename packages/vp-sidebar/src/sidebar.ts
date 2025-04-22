@@ -240,8 +240,7 @@ export default class VitePressSidebar {
 
       optionItem.collapseDepth = optionItem?.collapseDepth ?? 1;
       optionItem.manualSortFileNameByPriority = optionItem?.manualSortFileNameByPriority ?? [];
-      optionItem.excludeFiles = optionItem?.excludeFiles ?? [];
-      optionItem.excludeFolders = optionItem?.excludeFolders ?? [];
+      optionItem.excludePattern = optionItem?.excludePattern ?? [];
       optionItem.frontmatterOrderDefaultValue = optionItem?.frontmatterOrderDefaultValue ?? 0;
 
       let scanPath = optionItem.documentRootPath;
