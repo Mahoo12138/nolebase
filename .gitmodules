@@ -1,3 +1,6 @@
 [submodule "content/today-I-learned"]
 	path = content/today-I-learned
 	url = git@github.com:Mahoo12138/Today-I-Learned.git
+[submodule "content/language-learning"]
+	path = content/language-learning
+	url = git@github.com:Mahoo12138/language-learning.git
