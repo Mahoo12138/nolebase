@@ -18,6 +18,7 @@ import {
 import { ThumbnailHashImages } from "@nolebase/vitepress-plugin-thumbnail-hash/vite";
 import MarkdownItFootnote from "markdown-it-footnote";
 import MarkdownItMathjax3 from "markdown-it-mathjax3";
+import DefaultEntry from '@mahoo-note/vp-default-entry';
 
 import {
   defineConfig as defineUnocssConfig,
@@ -413,6 +414,10 @@ export default defineConfig({
       exclude: ["vitepress"],
     },
     plugins: [
+      DefaultEntry({
+        srcDir,
+        optional: ['README.md'] // 自定义优先级顺序
+      }),
       // Inspect(),
       // GitChangelog({
       //   repoURL: () => githubRepoLink,
